@@ -22,3 +22,22 @@ CENTOS_MANTISBT_PROJECT_VERSION="7"
 REDHAT_SUPPORT_PRODUCT="centos"
 REDHAT_SUPPORT_PRODUCT_VERSION="7"
 
+zip & unzip
+
+$ sudo unzip master.zip
+sudo: unzip: command not found
+
+$ sudo yum -y install zip
+$ sudo yum -y install unzip
+
+Creating a zip file
+       # zip <file>.zip <file1> <file2>.............<filen>
+
+Viewing files inside a zip archive
+       # unzip -l <file>.zip
+
+Extracting the zip file
+       # unzip <file>.zip
+
+Extract the zip file in particular location
+       # unzip <file>.zip -d /var/www/html       
