@@ -1,0 +1,100 @@
+About: https://docs.google.com/document/d/1WMhRk-6_vd0Vn4M7yNJjLNqDR-4cfiDiZxXzggUFoqg/edit?usp=sharing
+
+Parameters for Apache (httpd)
+
+Package                -     httpd     
+Port                    -     80         
+Protocol                 -      http        
+Server Root                -         /etc/httpd
+Main config file            -    /etc/httpd/conf/httpd.conf 
+Document root            -     /var/www/html    {all our web pages }
+Logs                    -     /var/log/httpd/error_log
+                        /var/log/httpd/access_log
+                        
+
+Checking httpd service is running or not [Centos/Redhat 6.x - 7.x]
+
+6.x - Whenever you have problem with httpd {troubleshooting httpd}
+    # service httpd status
+    # netstat -ntpl | grep 80
+    # ps -ef | grep httpd
+
+7.x - Whenever you have problem with httpd {troubleshooting httpd}
+    # systemctl status httpd
+    # netstat -ntpl | grep 80
+    # ps -ef | grep httpd
+
+$ sudo systemctl status httpd
+Unit httpd.service could not be found.
+
+Check configuration file (httpd.conf) is correct or not
+
+    # httpd -t        { 6.x and 7.x }
+
+Installing httpd service
+
+$ rpm -qa | grep httpd
+
+$ sudo yum -y install httpd
+
+Let’s check status of the web server:
+
+$ sudo systemctl status httpd
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled)
+   Active: inactive (dead)
+     Docs: man:httpd(8)
+           man:apachectl(8)
+
+Let’s start the web server:
+
+$ sudo systemctl start httpd
+
+$ sudo systemctl status httpd
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled)
+   Active: active (running) since Wed 2019-07-10 11:49:24 UTC; 9s ago
+     Docs: man:httpd(8)
+           man:apachectl(8)
+ Main PID: 9963 (httpd)
+   Status: "Total requests: 0; Current requests/sec: 0; Current traffic:   0 B/sec"
+   CGroup: /system.slice/httpd.service
+           ├─9963 /usr/sbin/httpd -DFOREGROUND
+           ├─9964 /usr/sbin/httpd -DFOREGROUND
+           ├─9965 /usr/sbin/httpd -DFOREGROUND
+           ├─9966 /usr/sbin/httpd -DFOREGROUND
+           ├─9967 /usr/sbin/httpd -DFOREGROUND
+           └─9968 /usr/sbin/httpd -DFOREGROUND
+
+Jul 10 11:49:24 dev systemd[1]: Starting The Apache HTTP Server...
+Jul 10 11:49:24 dev systemd[1]: Started The Apache HTTP Server.
+
+$ sudo netstat -ntpl | grep 80
+tcp6       0      0 :::80                   :::*                    LISTEN      9963/httpd
+
+$ ps -ef | grep httpd
+root      9963     1  0 11:49 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
+apache    9964  9963  0 11:49 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
+apache    9965  9963  0 11:49 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
+apache    9966  9963  0 11:49 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
+apache    9967  9963  0 11:49 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
+apache    9968  9963  0 11:49 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
+apache    9975  9963  0 11:50 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
+apache    9976  9963  0 11:50 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
+apache    9977  9963  0 11:50 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
+apache    9978  9963  0 11:50 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
+apache    9979  9963  0 11:50 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
+rsa-key+ 10017  8801  0 11:51 pts/0    00:00:00 grep --color=auto httpd
+
+
+
+Now we have started the service
+If you see # ls -l /var/www/html, you have no files in there, let’s create a index.html
+$ cd /var/www/html/
+[rsa-key-20190610@dev html]$
+   
+$ sudo vi index.html
+[rsa-key-20190610@dev html]$ cat index.html
+<h1>Welcome to Apache http Server</h1>
+[rsa-key-20190610@dev html]$
+
