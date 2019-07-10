@@ -41,3 +41,19 @@ Extracting the zip file
 
 Extract the zip file in particular location
        # unzip <file>.zip -d /var/www/html       
+
+How to Check System Uptime in Linux
+
+$ uptime
+ 13:13:09 up  7:23,  1 user,  load average: 0.00, 0.01, 0.05
+ 
+Check Last Reboot in Linux
+ 
+ $ last reboot
+reboot   system boot  3.10.0-957.21.3. Wed Jul 10 05:49 - 13:15  (07:25)
+reboot   system boot  3.10.0-957.21.3. Tue Jul  9 14:10 - 17:27  (03:16)
+reboot   system boot  3.10.0-957.21.3. Sun Jul  7 13:08 - 17:56  (04:47)
+reboot   system boot  3.10.0-957.21.3. Sun Jul  7 12:18 - 12:20  (00:01)
+
+wtmp begins Sun Jul  7 12:18:59 2019
+
