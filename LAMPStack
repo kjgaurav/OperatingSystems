@@ -172,3 +172,31 @@ Updating / installing...
 $ sudo yum -y install php70w
 
 $ sudo systemctl restart httpd
+
+
+Wordpress Setup
+
+$ wget https://wordpress.org/latest.tar.gz
+--2019-07-12 05:24:20--  https://wordpress.org/latest.tar.gz
+Resolving wordpress.org (wordpress.org)... 198.143.164.252
+Connecting to wordpress.org (wordpress.org)|198.143.164.252|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 11200591 (11M) [application/octet-stream]
+Saving to: ‘latest.tar.gz’
+
+100%[===================================================================================================================>] 11,200,591  --.-K/s   in 0.1s
+
+2019-07-12 05:24:20 (92.1 MB/s) - ‘latest.tar.gz’ saved [11200591/11200591]
+
+$ sudo tar xvf latest.tar.gz --directory /var/www/html/
+$ sudo vi /etc/httpd/conf/httpd.conf
+
+$ sudo chown -R apache:apache /var/www/html/wordpress/
+
+Browse the site with IP Address
+http://ip-address
+Your PHP installation appears to be missing the MySQL extension which is required by WordPress.
+
+$ sudo yum -y install php70w-mysql
+$ sudo systemctl restart httpd
+
