@@ -159,3 +159,16 @@ mysql> show databases;
 +--------------------+
 3 rows in set (0.00 sec)
 
+
+Installing PHP
+
+$ sudo rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+Retrieving https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+warning: /var/tmp/rpm-tmp.BwaCHY: Header V4 RSA/SHA1 Signature, key ID 62e74ca5: NOKEY
+Preparing...                          ################################# [100%]
+Updating / installing...
+   1:webtatic-release-7-3             ################################# [100%]
+
+$ sudo yum -y install php70w
+
+$ sudo systemctl restart httpd
