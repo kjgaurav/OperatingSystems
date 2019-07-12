@@ -42,6 +42,22 @@ Extracting the zip file
 Extract the zip file in particular location
        # unzip <file>.zip -d /var/www/html       
 
+Creating tar file without compression
+# tar -cvf <file_name>.tar <file1> <file2>.............<filen>
+
+Creating tar file with compression
+       # tar -cvzf <file_name>.tar.gz <file1> <file2>.............<filen>
+
+Viewing files inside a tar boll
+       # tar -tf <file_name>.tar
+
+Extract the tar file
+       # tar xvf <file_name>.tar
+
+Extract the tar file in particular location
+       # tar xvf <file_name>.tar -C /var/www/html
+
+
 How to Check System Uptime in Linux
 
 $ uptime
