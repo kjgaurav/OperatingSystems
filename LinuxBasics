@@ -133,3 +133,15 @@ mysql:!!:18088::::::
 
 
 
+User  Management
+
+# useradd
+# usermod
+# userdel
+# useradd <uname>           
+# passwd <uname>
+# useradd -c "Comments"    <uname>
+# usermod -l <new_name>    <old_name>
+# usermod -u <new_id> <uname>
+# userdel <uname>
+# userdel --remove <uname>  
