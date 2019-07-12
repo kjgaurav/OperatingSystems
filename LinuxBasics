@@ -157,4 +157,15 @@ Changing only group owner
 
 Changing both file & group owner in one go
 # sudo chown <uname>:<group_name> <file>
-# sudo chown -R <uname>:<group_name> <file>   
+# sudo chown -R <uname>:<group_name> <file> 
+
+
+find
+   
+   using find command we can search a file.
+
+   # find <location> -name <file>
+   # find / -name host
+   # find / -name host*
+   # find ~ -name "hello.*"
+
