@@ -145,3 +145,16 @@ User  Management
 # usermod -u <new_id> <uname>
 # userdel <uname>
 # userdel --remove <uname>  
+
+
+Changing Ownership
+
+Changing only file owner
+          # sudo chown <uname> <file>           
+
+Changing only group owner
+# sudo chgrp <group_name> <file>
+
+Changing both file & group owner in one go
+# sudo chown <uname>:<group_name> <file>
+# sudo chown -R <uname>:<group_name> <file>   
