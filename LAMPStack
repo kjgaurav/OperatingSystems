@@ -31,6 +31,10 @@ Check configuration file (httpd.conf) is correct or not
 
     # httpd -t        { 6.x and 7.x }
 
+$ httpd -t
+Syntax OK
+
+
 Installing httpd service
 
 $ rpm -qa | grep httpd
@@ -97,4 +101,61 @@ $ sudo vi index.html
 [rsa-key-20190610@dev html]$ cat index.html
 <h1>Welcome to Apache http Server</h1>
 [rsa-key-20190610@dev html]$
+
+$ sudo systemctl restart httpd
+
+Change the selinux to permissive
+sudo setenforce 0
+sudo getenforce { should give permissive }
+$ sudo setenforce 0
+[rsa-key-20190610@dev html]$ sudo getenforce
+Permissive
+
+
+
+MySQL Database
+
+$ wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+
+$ sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm
+Preparing...                          ################################# [100%]
+Updating / installing...
+   1:mysql-community-release-el7-5    ################################# [100%]
+
+
+$ sudo yum install mysql-server -y
+
+$ sudo systemctl start mysqld
+
+$ sudo netstat -ntpl | grep 3306
+tcp6       0      0 :::3306                 :::*                    LISTEN      22334/mysqld
+
+$ ps -ef | grep mysql
+mysql    22168     1  0 13:43 ?        00:00:00 /bin/sh /usr/bin/mysqld_safe --basedir=/usr
+mysql    22334 22168  0 13:43 ?        00:00:00 /usr/sbin/mysqld --basedir=/usr --datadir=/var/lib/mysql --plugin-dir=/usr/lib64/mysql/plugin --log-error=/var/log/mysqld.log --pid-file=/var/run/mysqld/mysqld.pid --socket=/var/lib/mysql/mysql.sock
+rsa-key+ 22425 20879  0 13:49 pts/0    00:00:00 grep --color=auto mysql
+
+
+$ sudo mysql_secure_installation
+
+Set root password? [Y/n] Y
+Remove anonymous users? [Y/n] Y
+ ... Success!
+Disallow root login remotely? [Y/n] Y
+ ... Success!
+Remove test database and access to it? [Y/n] Y
+ - Dropping test database...
+Reload privilege tables now? [Y/n] Y
+ ... Success!
+
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
++--------------------+
+3 rows in set (0.00 sec)
 
