@@ -169,3 +169,7 @@ find
    # find / -name host*
    # find ~ -name "hello.*"
 
+
+
+Determine Your Private and Public IP Addresses from the Command Line
+https://www.linuxtrainingacademy.com/determine-public-ip-address-command-line-curl/
