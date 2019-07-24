@@ -92,3 +92,20 @@ o never prompt before deleting
 o this allows you to remove files whose name starts with a -
  rm ./<name of file that starts with ->
 o same as the above
+
+
+ cp <source file or folder> <destination file or folder>
+o copies the source into the destination
+ cp -i
+o this option warns you before overwriting
+ cp -r
+o recursively copy folders
+ mv < source file or folder> <destination file or folder>
+o moves the source into the destination. if source is a file and destination is a folder then the destination folder must already exist
+ mv -i
+o this option warns you before overwriting
+
+ ln <name of file> <name of link>
+o creates a hard link of the specified file
+ ln -s <name of file> <name of link>
+o creates a soft link for the specified file
