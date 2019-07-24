@@ -58,3 +58,20 @@ o goes back into the previous working directory
 o this is a shortcut to the current working directory
  ..
 o this is a shortcut to the parent directory
+
+
+Manupulating Files and Folders Section
+ mkdir <name of directory>
+o makes a new directory
+ mkdir -p <nested directories>
+o makes a nested directory structure
+ mkdir -v
+o verbose output
+ ls -R
+o lists the contents of subdirectories recursively
+ rmdir <name of directory>
+o removes the directory if it is empty
+ rmdir -p <nested directories>
+o recursively removed nested directories
+ rmdir -v
+o verbose output
