@@ -37,3 +37,24 @@ o prints information about the cpu
 o similar to lshw
  inxi -F
 o prints the full list of information
+
+
+Navigating the Linux Filesystem Section
+
+Navigating the Linux Filesystem Section
+ pwd
+o prints the current working directory
+ ls
+o lists the contents of the working directory
+ ls -a
+o list hidden files and folders
+ ls -l
+o list contents using long listing format exposing file permissions
+ cd
+o changes the working directory
+ cd -
+o goes back into the previous working directory
+ .
+o this is a shortcut to the current working directory
+ ..
+o this is a shortcut to the parent directory
