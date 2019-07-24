@@ -75,3 +75,20 @@ o removes the directory if it is empty
 o recursively removed nested directories
  rmdir -v
 o verbose output
+
+ touch <name of file>
+o created an empty file
+ touch -- <name of file that starts with ->
+o this allows you to create files whose name starts with a -
+ touch ./<name of file that starts with ->
+o same as the above
+ rm <name of file>
+o removes the specified file
+ rm -r <name of directory>
+o recursively removes directories
+ rm -f <name of directory>
+o never prompt before deleting
+ rm -- <name of file that starts with ->
+o this allows you to remove files whose name starts with a -
+ rm ./<name of file that starts with ->
+o same as the above
