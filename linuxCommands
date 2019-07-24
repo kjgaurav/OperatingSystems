@@ -1,0 +1,26 @@
+Information Commands Section
+
+ uname
+o displays the name of the operating system
+ uname –a
+o same as previous with more verbose output
+ date
+o displays the date
+ cal
+o displays a calendar
+ clear
+o clears the screen
+ which [name of a program]
+o displays the path of the binary files of an installed program. Ex. which firefox
+ bash --version
+o prints the version of bash
+ history
+o prints a list of previously used commands
+ history -c
+o clears the history
+ Control+R
+o lets you search the history list
+ uptime
+o prints the system runtime
+ bc
+o opens up a calculator inside the teminal
