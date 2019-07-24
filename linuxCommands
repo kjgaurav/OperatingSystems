@@ -24,3 +24,16 @@ o lets you search the history list
 o prints the system runtime
  bc
 o opens up a calculator inside the teminal
+
+ lshw
+o lists complete hardware iformation
+ lshw -short
+o same as previous with shorter output formatted inside a table
+ lshw -html > filename
+o converts output to html and saves it to a local file
+ lscpu
+o prints information about the cpu
+ inxi
+o similar to lshw
+ inxi -F
+o prints the full list of information
